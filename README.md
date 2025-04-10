@@ -1,4 +1,5 @@
 John West
+
 Welcome to my personal portfolio! I'm a U.S. Army infantry veteran turned software developer with a B.S. in Computer Science, currently pursuing my M.S. in Computer and Data Science at Sam Houston State University.
 
 About Me
