@@ -115,12 +115,20 @@
   font-size: 0.8em;
   border: 1px solid rgba(255, 103, 72, 0.5);
   transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .skill-badge:hover {
   background: rgba(255, 103, 72, 0.4);
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(255, 103, 72, 0.3);
+  color: rgb(255, 124, 86);
+  text-decoration: none;
+}
+
+.skill-badge:visited {
+  color: rgb(255, 124, 86);
 }
 
 @media screen and (max-height: 450px) {
@@ -201,14 +209,14 @@
     </p>
     
     <div style="margin-top: 30px;">
-      <span class="skill-badge">C++</span>
-      <span class="skill-badge">Java</span>
-      <span class="skill-badge">Python</span>
-      <span class="skill-badge">SQL</span>
-      <span class="skill-badge">JavaFX</span>
-      <span class="skill-badge">SQLite</span>
-      <span class="skill-badge">Git</span>
-      <span class="skill-badge">Leadership</span>
+      <a href="https://isocpp.org/" target="_blank" class="skill-badge">C++</a>
+      <a href="https://www.oracle.com/java/" target="_blank" class="skill-badge">Java</a>
+      <a href="https://www.python.org/" target="_blank" class="skill-badge">Python</a>
+      <a href="https://www.w3schools.com/sql/" target="_blank" class="skill-badge">SQL</a>
+      <a href="https://openjfx.io/" target="_blank" class="skill-badge">JavaFX</a>
+      <a href="https://www.sqlite.org/" target="_blank" class="skill-badge">SQLite</a>
+      <a href="https://git-scm.com/" target="_blank" class="skill-badge">Git</a>
+      <a href="resume.html" class="skill-badge">Leadership</a>
     </div>
 
 </div>
