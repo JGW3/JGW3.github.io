@@ -62,8 +62,104 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 16px;}
 }
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .sidenav a {
+    padding: 10px 15px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 3em !important;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.5em !important;
+  }
+  
+  p {
+    font-size: 1.2em !important;
+  }
+  
+  .project-card {
+    margin: 15px 0;
+    padding: 15px;
+  }
+  
+  .project-card img {
+    width: 150px !important;
+    display: block;
+    margin: 0 auto 15px auto;
+  }
+  
+  iframe {
+    width: 100% !important;
+    height: 250px !important;
+  }
+}
+  
+  .project-card {
+    background: rgba(238, 240, 231, 0.9);
+    border: 2px solid rgba(18, 101, 5, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(18, 101, 5, 0.2);
+    border-color: rgba(18, 101, 5, 0.6);
+  }
+  
+  .project-card img {
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .github-link {
+    display: inline-block;
+    background: rgba(213, 103, 72, 0.2);
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(213, 103, 72, 0.5);
+  }
+  
+  .github-link:hover {
+    background: rgba(213, 103, 72, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(213, 103, 72, 0.3);
+  }
+  
   </style>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
      <title>Projects</title>
   </head>
@@ -73,6 +169,7 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
+    <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
     <a href="https://github.com/JGW3">GitHub</a>
   </div>
@@ -80,27 +177,45 @@
   <div class="main">
 
   <h1>Projects</h1>
-  <img src="img/remindmi_icon.png" width="200px"/>
-  <h2>RemindMi</h2>
-  <p>This is the result of my group's Software Engineering semester project for Fall 2022.<br>
-     RemindMi is a to-do list and reminder app designed with an emphasis on users with special needs.
-     The primary feature of the app is an admin account that can create, edit, and delete tasks, while 
-     dependent accounts can only "complete" their assigned tasks.<br>
-     RemindMi is a mobile that can run on Android or iOS.<br>
-     <a href="screenshots.html">Screenshots.</a><br>
+  
+  <div class="project-card">
+    <img src="img/pigfeedLogo.png" width="200px"/>
+    <h2>Pig Feed App</h2>
+    <p>A comprehensive desktop application built with JavaFX and SQLite for pig farming operations.<br>
+       Features a tabbed interface with interactive charts for tracking feed costs and calculating optimal mixes.<br>
+       Includes expense tracking, price optimization algorithms, and data-driven insights for farm management.<br>
+       <a href="https://github.com/JGW3/PigFeed" target="_blank" class="github-link">View on GitHub</a><br>
     </p>
-    <br>
-    <img src="img/garythesnail.jpg" width="180px" style="padding:10px"/>
+  </div>
+  
+  <div class="project-card">
+    <img src="img/remindmi_icon.png" width="200px"/>
+    <h2>RemindMi</h2>
+    <p>This is the result of my group's Software Engineering semester project for Fall 2022.<br>
+       RemindMi is a to-do list and reminder app designed with an emphasis on users with special needs.
+       The primary feature of the app is an admin account that can create, edit, and delete tasks, while 
+       dependent accounts can only "complete" their assigned tasks.<br>
+       RemindMi is a mobile that can run on Android or iOS.<br>
+       <a href="screenshots.html" class="github-link">Screenshots.</a><br>
+      </p>
+  </div>
+  
+  <div class="project-card">
+    <img src="img/garythesnail.jpg" width="200px" style="float: left; padding: 10px;"/>
     <h2>Gary the Snail</h2>
-    <p>This was our Embedded Systems robot.</p>
-    <iframe height="300" width="400"    
-    src="https://www.youtube.com/embed/OIgSAra6Nek">   
-    </iframe>   
+    <p>Embedded Systems robot project featuring autonomous navigation and obstacle avoidance.<br>
+       Built using Arduino microcontrollers with custom sensor integration and motor control algorithms.</p>
+    <div style="clear: both; margin: 20px 0;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/OIgSAra6Nek" 
+              style="max-width: 100%; border: none;" allowfullscreen>
+      </iframe>
+    </div>
+  </div>   
     <br>
-    <h2>Future Work</h2>
+    <h2>Additional Projects</h2>
     <a href="https://github.com/JGW3"><img src="img/GitHub-Logo.png" width="165px" style="padding:20px"></a>
-    <p>This is where my future projects will be found. The RemindMi app was my group's software engineering project.  
-        <a href="https://github.com/JGW3">https://github.com/JGW3</a> </p>
+    <p>View my complete portfolio of projects and contributions on GitHub.<br>
+        <a href="https://github.com/JGW3">https://github.com/JGW3</a></p>
 
   </div>
 </body>

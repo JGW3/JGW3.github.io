@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="main.css">
@@ -19,13 +20,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <style>
-    body{background-color: rgb(008, 003, 007);}
     body{
-      
+      background-color: rgb(008, 003, 007);
       background-image: url('img/darkroom.jpg'); 
       background-size:50% auto;
       background-repeat: no-repeat;
       background-position: right;
+      transition: all 0.3s ease;
     }
     h1 {
       color: rgb(255, 103, 72);
@@ -33,11 +34,23 @@
       font-family: 'Press Start 2P', monospace;
       font-weight: normal;
       font-style: normal;
+      animation: glow 2s ease-in-out infinite alternate;
+      text-shadow: 0 0 20px rgba(255, 103, 72, 0.5);
+   }
+   @keyframes glow {
+     from { text-shadow: 0 0 20px rgba(255, 103, 72, 0.5), 0 0 30px rgba(255, 103, 72, 0.3); }
+     to { text-shadow: 0 0 30px rgba(255, 103, 72, 0.8), 0 0 40px rgba(255, 103, 72, 0.5); }
    }
    p{
     color:rgb(255, 124, 86);
     font-size: 2em;
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    animation: fadeInUp 1s ease-out 0.5s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   .sidenav {
       height: 100%;
@@ -46,9 +59,10 @@
       z-index: 1;
       top: 0;
       left: 0;
-      background-color: #111;
+      background: linear-gradient(180deg, #111 0%, #222 100%);
       overflow-x: hidden;
       padding-top: 320px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
    }
 
     .sidenav a {
@@ -58,10 +72,32 @@
       font-size: 16px;
       color: rgb(000, 210, 210);
       display: block;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
 .sidenav a:hover {
   color:rgb(204, 254, 255);
+  background: rgba(0, 210, 210, 0.1);
+  transform: translateX(5px);
+  text-shadow: 0 0 10px rgba(204, 254, 255, 0.5);
+}
+
+.sidenav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: rgb(204, 254, 255);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.sidenav a:hover::before {
+  transform: scaleY(1);
 }
 
 .main {
@@ -69,9 +105,73 @@
   padding: 0px 10px;
 }
 
+.skill-badge {
+  display: inline-block;
+  background: rgba(255, 103, 72, 0.2);
+  color: rgb(255, 124, 86);
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  border: 1px solid rgba(255, 103, 72, 0.5);
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background: rgba(255, 103, 72, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 103, 72, 0.3);
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 16px;}
+}
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: linear-gradient(90deg, #111 0%, #222 100%);
+  }
+  
+  .sidenav a {
+    padding: 10px 15px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em !important;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 1.5em !important;
+    text-align: center;
+  }
+  
+  body {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  
+  .skill-badge {
+    font-size: 0.7em;
+    padding: 6px 12px;
+  }
 }
   </style>
   
@@ -87,6 +187,7 @@
     <a>Home</a>
     <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
+    <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
     <a href="https://github.com/JGW3">GitHub</a>
   </div>
@@ -94,11 +195,21 @@
   <div class="main">
   <h1><br><br>HELLO,<br>I AM<br> JOHN WEST.</h1>
     <p>I am a Software Developer with a B.S. in <br>
-       Computing Science from Sam Houston State University,<br>
-       currently pursuing an M.S. in Computer and Data Science.<br>
+       Computing Science from Sam Houston State University.<br>
        I specialize in robust software solutions and <br>
        effective teamwork.
     </p>
+    
+    <div style="margin-top: 30px;">
+      <span class="skill-badge">C++</span>
+      <span class="skill-badge">Java</span>
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">SQL</span>
+      <span class="skill-badge">JavaFX</span>
+      <span class="skill-badge">SQLite</span>
+      <span class="skill-badge">Git</span>
+      <span class="skill-badge">Leadership</span>
+    </div>
 
 </div>
 </body>
