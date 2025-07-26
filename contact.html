@@ -55,6 +55,45 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 16px;}
 }
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  
+  .sidenav a {
+    padding: 15px 12px;
+    font-size: 12px;
+    flex: 1;
+    text-align: center;
+    min-width: 70px;
+  }
+  
+  .main {
+    margin-left: 0;
+    margin-top: 60px;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 3em !important;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 1.2em !important;
+  }
+}
   </style>
   <head>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -70,7 +109,7 @@
     <a href="projects.html">Projects</a>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
-    <a href="https://github.com/JGW3" target="_blank">GitHub</a>
+    <a href="https://github.com/JGW3" target="_blank" onclick="return confirm('You are leaving this site to view my GitHub profile. Continue?')">GitHub</a>
   </div>
 
   <div class="main">
