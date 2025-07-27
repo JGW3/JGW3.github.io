@@ -134,6 +134,25 @@
       }
     }
   </style>
+  
+  <script>
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    
+    if (isMobileDevice()) {
+      document.addEventListener('DOMContentLoaded', function() {
+        const h2Elements = document.querySelectorAll('h2');
+        h2Elements.forEach(function(h2) {
+          h2.style.color = 'rgb(100, 200, 255)';
+          h2.style.textShadow = '2px 2px 4px rgba(0,0,0,0.9)';
+          h2.style.background = 'rgba(0,0,0,0.7)';
+          h2.style.padding = '8px 12px';
+          h2.style.borderRadius = '5px';
+        });
+      });
+    }
+  </script>
 </head>
 <body>
   <div class="sidenav">
