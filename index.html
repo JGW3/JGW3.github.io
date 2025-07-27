@@ -130,6 +130,32 @@
   color: rgb(255, 124, 86);
 }
 
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 103, 72, 0.5);
+}
+
+.popup-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 16px;}
@@ -217,13 +243,36 @@
       <a href="https://github.com/JGW3/PublicationDB" target="_blank" class="skill-badge">Java</a>
       <span class="skill-badge">Python</span>
       <span class="skill-badge">SQL</span>
-      <span class="skill-badge">JavaFX</span>
+      <a href="https://github.com/JGW3/PigFeed" target="_blank" class="skill-badge">JavaFX</a>
       <span class="skill-badge">SQLite</span>
       <span class="skill-badge">Git</span>
-      <span class="skill-badge">Leadership</span>
+      <span class="skill-badge" onclick="showPopup()">Leadership</span>
     </div>
 
 </div>
+
+<div id="popupOverlay" class="popup-overlay" onclick="hidePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <img src="img/WLC.png" alt="Warrior Leader Course Certificate">
+  </div>
+</div>
+
+<script>
+function showPopup() {
+  document.getElementById('popupOverlay').style.display = 'flex';
+}
+
+function hidePopup() {
+  document.getElementById('popupOverlay').style.display = 'none';
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    hidePopup();
+  }
+});
+</script>
+
 </body>
 </body>
 </html>
