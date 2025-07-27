@@ -180,25 +180,59 @@
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
     
-    // Force blue text on mobile - aggressive approach
-    document.addEventListener('DOMContentLoaded', function() {
+    // Smart text color based on image overlap
+    function checkTextImageOverlap() {
+      const image = document.querySelector('img[src="img/jgw.png"]');
       const h2Elements = document.querySelectorAll('h2');
+      
+      if (!image) return;
+      
+      const imageRect = image.getBoundingClientRect();
+      
       h2Elements.forEach(function(h2) {
-        h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
-        h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
-        h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
+        const h2Rect = h2.getBoundingClientRect();
+        
+        // Calculate overlap
+        const overlapLeft = Math.max(imageRect.left, h2Rect.left);
+        const overlapRight = Math.min(imageRect.right, h2Rect.right);
+        const overlapTop = Math.max(imageRect.top, h2Rect.top);
+        const overlapBottom = Math.min(imageRect.bottom, h2Rect.bottom);
+        
+        const overlapWidth = Math.max(0, overlapRight - overlapLeft);
+        const overlapHeight = Math.max(0, overlapBottom - overlapTop);
+        const overlapArea = overlapWidth * overlapHeight;
+        
+        const h2Area = h2Rect.width * h2Rect.height;
+        const overlapPercentage = h2Area > 0 ? (overlapArea / h2Area) : 0;
+        
+        // If more than 50% overlap, use high contrast color
+        if (overlapPercentage > 0.5) {
+          h2.style.setProperty('color', 'rgb(255, 255, 0)', 'important'); // Bright yellow
+          h2.style.setProperty('text-shadow', '2px 2px 6px rgba(0,0,0,1)', 'important');
+          h2.style.setProperty('background', 'rgba(0,0,0,0.9)', 'important');
+        } else {
+          h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important'); // Blue
+          h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
+          h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
+        }
+        
         h2.style.setProperty('padding', '8px 12px', 'important');
         h2.style.setProperty('border-radius', '5px', 'important');
-        h2.style.setProperty('border-bottom', '2px solid rgb(100, 200, 255)', 'important');
+        h2.style.setProperty('border-bottom', '2px solid ' + h2.style.color, 'important');
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      checkTextImageOverlap();
+      
+      // Recheck on window resize/orientation change
+      window.addEventListener('resize', checkTextImageOverlap);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(checkTextImageOverlap, 100);
       });
       
-      // Force it again after a delay in case other scripts interfere
-      setTimeout(function() {
-        const h2Elements = document.querySelectorAll('h2');
-        h2Elements.forEach(function(h2) {
-          h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
-        });
-      }, 500);
+      // Fallback check after delay
+      setTimeout(checkTextImageOverlap, 500);
     });
   </script>
   
