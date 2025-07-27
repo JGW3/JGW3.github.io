@@ -217,6 +217,29 @@
 }
   </style>
   
+  <script>
+    // Smart text color for mobile to avoid orange-on-orange clash
+    function checkMobileTextContrast() {
+      const isMobile = window.innerWidth <= 768;
+      const pElements = document.querySelectorAll('p');
+      
+      if (isMobile) {
+        pElements.forEach(function(p) {
+          p.style.setProperty('color', 'rgb(100, 200, 255)', 'important'); // Blue instead of orange
+          p.style.setProperty('text-shadow', '2px 2px 6px rgba(0,0,0,0.9)', 'important');
+        });
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      checkMobileTextContrast();
+      window.addEventListener('resize', checkMobileTextContrast);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(checkMobileTextContrast, 100);
+      });
+    });
+  </script>
+  
 
   <head>
      <title>John West's Page</title>
