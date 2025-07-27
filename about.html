@@ -180,49 +180,63 @@
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
     
-    // Smart text color based on image overlap
+    // Smart text color based on image overlap and screen size
     function checkTextImageOverlap() {
-      const image = document.querySelector('img[src="img/jgw.png"]');
       const h2Elements = document.querySelectorAll('h2');
-      
-      if (!image) return;
-      
-      const imageRect = image.getBoundingClientRect();
+      const isMobile = window.innerWidth <= 768;
       
       h2Elements.forEach(function(h2) {
-        const h2Rect = h2.getBoundingClientRect();
-        
-        // Calculate overlap
-        const overlapLeft = Math.max(imageRect.left, h2Rect.left);
-        const overlapRight = Math.min(imageRect.right, h2Rect.right);
-        const overlapTop = Math.max(imageRect.top, h2Rect.top);
-        const overlapBottom = Math.min(imageRect.bottom, h2Rect.bottom);
-        
-        const overlapWidth = Math.max(0, overlapRight - overlapLeft);
-        const overlapHeight = Math.max(0, overlapBottom - overlapTop);
-        const overlapArea = overlapWidth * overlapHeight;
-        
-        const h2Area = h2Rect.width * h2Rect.height;
-        const overlapPercentage = h2Area > 0 ? (overlapArea / h2Area) : 0;
-        
-        // Calculate horizontal overlap specifically for side-by-side layouts
-        const horizontalOverlap = overlapWidth / h2Rect.width;
-        const verticalOverlap = overlapHeight / h2Rect.height;
-        
-        // If any significant overlap (>30% horizontal OR >20% total area), use high contrast
-        if (horizontalOverlap > 0.3 || overlapPercentage > 0.2) {
+        // On mobile, always use high contrast yellow since image and text often overlap
+        if (isMobile) {
           h2.style.setProperty('color', 'rgb(255, 255, 0)', 'important'); // Bright yellow
-          h2.style.setProperty('text-shadow', '2px 2px 6px rgba(0,0,0,1)', 'important');
+          h2.style.setProperty('text-shadow', '3px 3px 8px rgba(0,0,0,1)', 'important');
           h2.style.setProperty('background', 'rgba(0,0,0,0.9)', 'important');
+          h2.style.setProperty('border-bottom', '2px solid rgb(255, 255, 0)', 'important');
         } else {
-          h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important'); // Blue
-          h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
-          h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
+          // Desktop: check for actual overlap
+          const image = document.querySelector('img[src="img/jgw.png"]');
+          if (!image) {
+            // Fallback if no image found
+            h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
+            h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
+            h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
+            h2.style.setProperty('border-bottom', '2px solid rgb(100, 200, 255)', 'important');
+            return;
+          }
+          
+          const imageRect = image.getBoundingClientRect();
+          const h2Rect = h2.getBoundingClientRect();
+          
+          // Calculate overlap
+          const overlapLeft = Math.max(imageRect.left, h2Rect.left);
+          const overlapRight = Math.min(imageRect.right, h2Rect.right);
+          const overlapTop = Math.max(imageRect.top, h2Rect.top);
+          const overlapBottom = Math.min(imageRect.bottom, h2Rect.bottom);
+          
+          const overlapWidth = Math.max(0, overlapRight - overlapLeft);
+          const overlapHeight = Math.max(0, overlapBottom - overlapTop);
+          const overlapArea = overlapWidth * overlapHeight;
+          
+          const h2Area = h2Rect.width * h2Rect.height;
+          const overlapPercentage = h2Area > 0 ? (overlapArea / h2Area) : 0;
+          const horizontalOverlap = h2Rect.width > 0 ? (overlapWidth / h2Rect.width) : 0;
+          
+          // If any significant overlap, use high contrast
+          if (horizontalOverlap > 0.3 || overlapPercentage > 0.2) {
+            h2.style.setProperty('color', 'rgb(255, 255, 0)', 'important'); // Bright yellow
+            h2.style.setProperty('text-shadow', '3px 3px 8px rgba(0,0,0,1)', 'important');
+            h2.style.setProperty('background', 'rgba(0,0,0,0.9)', 'important');
+            h2.style.setProperty('border-bottom', '2px solid rgb(255, 255, 0)', 'important');
+          } else {
+            h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important'); // Blue
+            h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
+            h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
+            h2.style.setProperty('border-bottom', '2px solid rgb(100, 200, 255)', 'important');
+          }
         }
         
         h2.style.setProperty('padding', '8px 12px', 'important');
         h2.style.setProperty('border-radius', '5px', 'important');
-        h2.style.setProperty('border-bottom', '2px solid ' + h2.style.color, 'important');
       });
     }
     
