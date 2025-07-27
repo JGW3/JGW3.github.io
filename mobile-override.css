@@ -1,0 +1,21 @@
+/* Mobile-only CSS override file */
+@media screen and (max-width: 768px) {
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(100, 200, 255) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9) !important;
+    background: rgba(0,0,0,0.7) !important;
+    padding: 8px 12px !important;
+    border-radius: 5px !important;
+    border-bottom: 2px solid rgb(100, 200, 255) !important;
+  }
+}
+
+/* Force for all devices if mobile detection fails */
+h2 {
+  color: rgb(100, 200, 255) !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.9) !important;
+  background: rgba(0,0,0,0.7) !important;
+  padding: 8px 12px !important;
+  border-radius: 5px !important;
+  border-bottom: 2px solid rgb(100, 200, 255) !important;
+}
