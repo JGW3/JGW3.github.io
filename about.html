@@ -205,8 +205,12 @@
         const h2Area = h2Rect.width * h2Rect.height;
         const overlapPercentage = h2Area > 0 ? (overlapArea / h2Area) : 0;
         
-        // If more than 50% overlap, use high contrast color
-        if (overlapPercentage > 0.5) {
+        // Calculate horizontal overlap specifically for side-by-side layouts
+        const horizontalOverlap = overlapWidth / h2Rect.width;
+        const verticalOverlap = overlapHeight / h2Rect.height;
+        
+        // If any significant overlap (>30% horizontal OR >20% total area), use high contrast
+        if (horizontalOverlap > 0.3 || overlapPercentage > 0.2) {
           h2.style.setProperty('color', 'rgb(255, 255, 0)', 'important'); // Bright yellow
           h2.style.setProperty('text-shadow', '2px 2px 6px rgba(0,0,0,1)', 'important');
           h2.style.setProperty('background', 'rgba(0,0,0,0.9)', 'important');
