@@ -164,18 +164,26 @@
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
     
-    if (isMobileDevice()) {
-      document.addEventListener('DOMContentLoaded', function() {
+    // Force blue text on mobile - aggressive approach
+    document.addEventListener('DOMContentLoaded', function() {
+      const h2Elements = document.querySelectorAll('h2');
+      h2Elements.forEach(function(h2) {
+        h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
+        h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
+        h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
+        h2.style.setProperty('padding', '8px 12px', 'important');
+        h2.style.setProperty('border-radius', '5px', 'important');
+        h2.style.setProperty('border-bottom', '2px solid rgb(100, 200, 255)', 'important');
+      });
+      
+      // Force it again after a delay in case other scripts interfere
+      setTimeout(function() {
         const h2Elements = document.querySelectorAll('h2');
         h2Elements.forEach(function(h2) {
-          h2.style.color = 'rgb(100, 200, 255)';
-          h2.style.textShadow = '2px 2px 4px rgba(0,0,0,0.9)';
-          h2.style.background = 'rgba(0,0,0,0.7)';
-          h2.style.padding = '8px 12px';
-          h2.style.borderRadius = '5px';
+          h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
         });
-      });
-    }
+      }, 500);
+    });
   </script>
   
   <style>
