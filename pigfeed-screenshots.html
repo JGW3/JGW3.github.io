@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PigFeed App Screenshots</title>
+  <link rel="stylesheet" href="css/mycss.css">
+  <style>
+    body{
+      background-color: rgb(238, 240, 231);
+      background-image: url('img/pigfeedLogo.png'); 
+      background-size: 200px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+    h1 {
+      color: rgb(18, 101, 5);
+      font-size: 5em;
+      font-family: 'Press Start 2P', monospace;
+      font-weight: normal;
+      font-style: normal;
+   }
+   h2 {
+    color: rgb(213, 103, 72);
+    font-size: 2em;
+      font-family: 'Press Start 2P', monospace;
+      font-weight: normal;
+      font-style: normal;
+  }
+   p{
+    color:rgb(52, 20, 5);
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .sidenav {
+      height: 100%;
+      width: 160px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 320px;
+   }
+
+    .sidenav a {
+      padding: 6px 8px 16px 16px;
+      text-decoration: none;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 16px;
+      color: rgb(000, 210, 210);
+      display: block;
+    }
+
+.sidenav a:hover {
+  color:rgb(204, 254, 255);
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 16px;}
+}
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #111;
+  }
+  
+  .sidenav a {
+    padding: 15px 12px;
+    font-size: 12px;
+    flex: 1;
+    text-align: center;
+    min-width: 70px;
+  }
+  
+  .main {
+    margin-left: 0;
+    margin-top: 60px;
+    padding: 20px;
+  }
+  
+  .wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  h1 {
+    font-size: 3em !important;
+    text-align: center;
+  }
+}
+
+.github-link {
+  display: inline-block;
+  background: rgba(213, 103, 72, 0.2);
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(213, 103, 72, 0.5);
+  margin: 10px 0;
+}
+
+.github-link:hover {
+  background: rgba(213, 103, 72, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(213, 103, 72, 0.3);
+}
+  </style>
+</head>
+    
+<body>
+  <div class="sidenav">
+    <a href="projects.html">Go Back</a>
+  </div>
+
+  <div class="main">
+    <h1>PigFeed App Screenshots</h1>
+    <p>A comprehensive JavaFX desktop application for pig farming operations with interactive charts and data management.</p>
+    <a href="https://github.com/JGW3/PigFeed" target="_blank" class="github-link">View on GitHub</a>
+    
+  <div class="wrapper">
+    <a href="img/pigfeedwelcom.png">
+    <div><img src="img/pigfeedwelcom.png" width="300px" ><p>Welcome Screen</p></div>
+    </a>
+    
+    <a href="img/pigfeedcost.png">
+    <div><img src="img/pigfeedcost.png" width="300px"><p>Feed Cost Analysis</p></div>
+    </a>
+
+    <a href="img/pigfeedmix.png">
+    <div><img src="img/pigfeedmix.png" width="300px"><p>Feed Mix Calculator</p></div>
+    </a>
+
+    <a href="img/pigfeedreports.png">
+    <div><img src="img/pigfeedreports.png" width="300px"><p>Reports & Analytics</p></div>
+    </a>
+
+  </div>
+  </div>
+</body>
+</html>
