@@ -3,26 +3,16 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
-  <title>Screenshots</title>
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="mycss.css">
-</head>
-<body>
-<!DOCTYPE html>
-
-
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RemindMi Screenshots</title>
+  <link rel="stylesheet" href="css/mycss.css">
   <style>
     body{
       background-color: rgb(238, 240, 231);
-    }
-    body{
-      
       background-image: url('img/remindmi_icon.png'); 
-      background: size 200px;;
+      background-size: 200px;
       background-repeat: no-repeat;
-      background-position: right, center;
+      background-position: right center;
     }
     h1 {
       color: rgb(18, 101, 5);
@@ -77,11 +67,65 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 16px;}
 }
-  </style>
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #111;
+  }
   
-    <link rel="stylesheet" href="css/mycss.css">
-     <title>RemindMi</title>
-  </head>
+  .sidenav a {
+    padding: 15px 12px;
+    font-size: 12px;
+    flex: 1;
+    text-align: center;
+    min-width: 70px;
+  }
+  
+  .main {
+    margin-left: 0;
+    margin-top: 60px;
+    padding: 20px;
+  }
+  
+  .wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  h1 {
+    font-size: 3em !important;
+    text-align: center;
+  }
+}
+
+.github-link {
+  display: inline-block;
+  background: rgba(213, 103, 72, 0.2);
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(213, 103, 72, 0.5);
+  margin: 10px 0;
+}
+
+.github-link:hover {
+  background: rgba(213, 103, 72, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(213, 103, 72, 0.3);
+}
+  </style>
+</head>
     
 <body>
   <div class="sidenav">
@@ -89,7 +133,10 @@
   </div>
 
   <div class="main">
-    <h1>RemindMi</h1>
+    <h1>RemindMi Screenshots</h1>
+    <p>A collaborative Software Engineering project - to-do list and reminder app designed for users with special needs.</p>
+    <a href="https://github.com/JGW3/RemindMi/tree/WestBranch2" target="_blank" class="github-link">View on GitHub</a>
+    
   <div class="wrapper">
     <a href="img/remindmi1.png">
     <div><img src="img/remindmi1.png" width="200px" ><p>Splash Screen</p></div>
@@ -118,6 +165,5 @@
 
   </div>
   </div>
-</body>
 </body>
 </html>
