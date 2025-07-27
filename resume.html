@@ -96,6 +96,22 @@
   text-shadow: 0 0 10px rgba(204, 254, 255, 0.5);
 }
 
+.sidenav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: rgb(204, 254, 255);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.sidenav a:hover::before {
+  transform: scaleY(1);
+}
+
 .main {
   margin-left: 160px;
   padding: 0px 10px;
