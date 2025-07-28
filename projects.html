@@ -26,8 +26,7 @@
     font-family: Arial, Helvetica, sans-serif;
   }
  img{
-    float: left;
-    margin-right: 20px;
+    display: block;
   } 
   .sidenav {
       height: 100%;
@@ -131,12 +130,18 @@
   .project-card {
     margin: 15px 0;
     padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .project-image {
+    margin-bottom: 15px;
   }
   
   .project-card img {
     width: 150px !important;
     display: block;
-    margin: 0 auto 15px auto;
   }
   
   iframe {
@@ -153,6 +158,17 @@
     margin: 20px 0;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .project-content {
+    flex: 1;
+  }
+  
+  .project-image {
+    flex-shrink: 0;
   }
   
   .project-card:hover {
@@ -207,48 +223,64 @@
   <h1>Projects</h1>
   
   <div class="project-card">
-    <img src="img/pigfeedLogo.png" width="200px"/>
-    <h2>Pig Feed App</h2>
-    <p>A comprehensive desktop application built with JavaFX and SQLite for pig farming operations.<br>
-       Features a tabbed interface with interactive charts for tracking feed costs and calculating optimal mixes.<br>
-       Includes expense tracking, price optimization algorithms, and data-driven insights for farm management.<br><br>
-       <a href="https://github.com/JGW3/PigFeed" target="_blank" class="github-link">View on GitHub</a> | 
-       <a href="pigfeed-screenshots.html" class="github-link">Screenshots</a>
-    </p>
+    <div class="project-image">
+      <img src="img/pigfeedLogo.png" width="200px"/>
+    </div>
+    <div class="project-content">
+      <h2>Pig Feed App</h2>
+      <p>A comprehensive desktop application built with JavaFX and SQLite for pig farming operations.<br>
+         Features a tabbed interface with interactive charts for tracking feed costs and calculating optimal mixes.<br>
+         Includes expense tracking, price optimization algorithms, and data-driven insights for farm management.<br><br>
+         <a href="https://github.com/JGW3/PigFeed" target="_blank" class="github-link">View on GitHub</a> | 
+         <a href="pigfeed-screenshots.html" class="github-link">Screenshots</a>
+      </p>
+    </div>
   </div>
   
   <div class="project-card">
-    <img src="img/SeniorShield.png" width="200px" style="vertical-align: middle;"/>
-    <h2>SeniorShield</h2>
-    <p style="overflow: hidden;">An AI-driven fraud prevention mobile app designed specifically for senior citizens.<br>
-       Features real-time FTC scam alerts, community phone number reporting, and an intelligent chatbot assistant.<br>
-       Built with Flutter, Flask backend, and LangChain for conversational fraud guidance tailored to elderly users.<br>
-       <em>Team: John West, Mohammed Kushalgarhwala, Pasan Edirisinghe, Dr. Islam</em><br><br>
-       <a href="https://github.com/JGW3/SeniorShield" target="_blank" class="github-link">View on GitHub</a> | 
-       <a href="seniorshield-screenshots.html" class="github-link">Screenshots</a>
-    </p>
+    <div class="project-image">
+      <img src="img/SeniorShield.png" width="200px"/>
+    </div>
+    <div class="project-content">
+      <h2>SeniorShield</h2>
+      <p>An AI-driven fraud prevention mobile app designed specifically for senior citizens.<br>
+         Features real-time FTC scam alerts, community phone number reporting, and an intelligent chatbot assistant.<br>
+         Built with Flutter, Flask backend, and LangChain for conversational fraud guidance tailored to elderly users.<br>
+         <em>Team: John West, Mohammed Kushalgarhwala, Pasan Edirisinghe, Dr. Islam</em><br><br>
+         <a href="https://github.com/JGW3/SeniorShield" target="_blank" class="github-link">View on GitHub</a> | 
+         <a href="seniorshield-screenshots.html" class="github-link">Screenshots</a>
+      </p>
+    </div>
   </div>
   
   <div class="project-card">
-    <img src="img/remindmi_icon.png" width="200px" style="vertical-align: middle;"/>
-    <h2>RemindMi</h2>
-    <p>A collaborative Software Engineering project - to-do list and reminder app for users with special needs.<br>
-       Features admin accounts that can create and manage tasks, while dependent accounts can complete assigned tasks.<br>
-       Cross-platform mobile app for Android and iOS.<br><br>
-       <a href="https://github.com/JGW3/RemindMi/tree/WestBranch2" target="_blank" class="github-link">View on GitHub</a> | 
-       <a href="screenshots.html" class="github-link">Screenshots</a>
-    </p>
+    <div class="project-image">
+      <img src="img/remindmi_icon.png" width="200px"/>
+    </div>
+    <div class="project-content">
+      <h2>RemindMi</h2>
+      <p>A collaborative Software Engineering project - to-do list and reminder app for users with special needs.<br>
+         Features admin accounts that can create and manage tasks, while dependent accounts can complete assigned tasks.<br>
+         Cross-platform mobile app for Android and iOS.<br><br>
+         <a href="https://github.com/JGW3/RemindMi/tree/WestBranch2" target="_blank" class="github-link">View on GitHub</a> | 
+         <a href="screenshots.html" class="github-link">Screenshots</a>
+      </p>
+    </div>
   </div>
   
   <div class="project-card">
-    <img src="img/garythesnail.jpg" width="200px" style="float: left; padding: 10px;"/>
-    <h2>Gary the Snail</h2>
-    <p>Embedded Systems robot project featuring autonomous navigation and obstacle avoidance.<br>
-       Built using Arduino microcontrollers with custom sensor integration and motor control algorithms.</p>
-    <div style="clear: both; margin: 20px 0;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/OIgSAra6Nek" 
-              style="max-width: 100%; border: none;" allowfullscreen>
-      </iframe>
+    <div class="project-image">
+      <img src="img/garythesnail.jpg" width="200px"/>
+    </div>
+    <div class="project-content">
+      <h2>Gary the Snail</h2>
+      <p>Embedded Systems robot project featuring autonomous navigation and obstacle avoidance.<br>
+         Built using Arduino microcontrollers with custom sensor integration and motor control algorithms.</p>
+      <div style="margin: 20px 0;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/OIgSAra6Nek" 
+                style="max-width: 100%; border: none;" allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>   
     <br>
