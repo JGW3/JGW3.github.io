@@ -200,7 +200,37 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(213, 103, 72, 0.3);
   }
-  
+
+  .project-image img[onclick] {
+    cursor: pointer;
+  }
+
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(18, 101, 5, 0.5);
+  }
+
+  .popup-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
   </style>
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -298,7 +328,7 @@
 
   <div class="project-card">
     <div class="project-image">
-      <img src="img/homelab.jpg" width="200px"/>
+      <img src="img/homelab.jpg" width="200px" onclick="showPopup('img/homelab.jpg')"/>
     </div>
     <div class="project-content">
       <h2>Homelab Server</h2>
@@ -313,6 +343,30 @@
         <a href="https://github.com/JGW3" target="_blank" onclick="return confirm('You are leaving this site to view my GitHub profile. Continue?')">https://github.com/JGW3</a></p>
 
   </div>
+
+<div id="popupOverlay" class="popup-overlay" onclick="hidePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <img id="popupImage" src="" alt="Enlarged project image">
+  </div>
+</div>
+
+<script>
+function showPopup(src) {
+  document.getElementById('popupImage').src = src;
+  document.getElementById('popupOverlay').style.display = 'flex';
+}
+
+function hidePopup() {
+  document.getElementById('popupOverlay').style.display = 'none';
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    hidePopup();
+  }
+});
+</script>
+
 </body>
 
 </html>
