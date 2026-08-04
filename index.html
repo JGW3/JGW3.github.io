@@ -145,6 +145,12 @@
   z-index: 9999;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
 }
 
 .popup-content {
@@ -152,6 +158,12 @@
   max-height: 90%;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(255, 103, 72, 0.5);
+  transform: scale(0.7);
+  transition: transform 0.25s ease;
+}
+
+.popup-overlay.active .popup-content {
+  transform: scale(1);
 }
 
 .popup-content img {
@@ -270,7 +282,7 @@
     
     <div style="margin-top: 30px;">
       <span class="skill-badge">AutoCAD</span>
-      <span class="skill-badge">PLC / OpenPLC</span>
+      <a href="https://github.com/JGW3/plc-projects" target="_blank" class="skill-badge" onclick="return confirm('You are leaving this site to view a GitHub repository. Continue?')">PLC / OpenPLC</a>
       <span class="skill-badge">Control Systems</span>
       <span class="skill-badge">Electrical Troubleshooting</span>
       <a href="https://github.com/JGW3/loan-payment-calculator" target="_blank" class="skill-badge" onclick="return confirm('You are leaving this site to view a GitHub repository. Continue?')">C++</a>
@@ -292,11 +304,19 @@
 
 <script>
 function showPopup() {
-  document.getElementById('popupOverlay').style.display = 'flex';
+  const overlay = document.getElementById('popupOverlay');
+  overlay.style.display = 'flex';
+  requestAnimationFrame(function() {
+    overlay.classList.add('active');
+  });
 }
 
 function hidePopup() {
-  document.getElementById('popupOverlay').style.display = 'none';
+  const overlay = document.getElementById('popupOverlay');
+  overlay.classList.remove('active');
+  setTimeout(function() {
+    overlay.style.display = 'none';
+  }, 250);
 }
 
 document.addEventListener('keydown', function(event) {

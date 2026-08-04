@@ -216,6 +216,12 @@
     z-index: 9999;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .popup-overlay.active {
+    opacity: 1;
   }
 
   .popup-content {
@@ -223,6 +229,12 @@
     max-height: 90%;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(18, 101, 5, 0.5);
+    transform: scale(0.7);
+    transition: transform 0.25s ease;
+  }
+
+  .popup-overlay.active .popup-content {
+    transform: scale(1);
   }
 
   .popup-content img {
@@ -352,12 +364,20 @@
 
 <script>
 function showPopup(src) {
+  const overlay = document.getElementById('popupOverlay');
   document.getElementById('popupImage').src = src;
-  document.getElementById('popupOverlay').style.display = 'flex';
+  overlay.style.display = 'flex';
+  requestAnimationFrame(function() {
+    overlay.classList.add('active');
+  });
 }
 
 function hidePopup() {
-  document.getElementById('popupOverlay').style.display = 'none';
+  const overlay = document.getElementById('popupOverlay');
+  overlay.classList.remove('active');
+  setTimeout(function() {
+    overlay.style.display = 'none';
+  }, 250);
 }
 
 document.addEventListener('keydown', function(event) {
