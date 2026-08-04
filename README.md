@@ -1,19 +1,9 @@
-## John West
+Hi there. I'm John West, a controls and electronics technologist with a software background and a U.S. Army veteran. I build automation, PLC, and embedded projects, and I write clean, reliable code.
 
-Welcome to my personal portfolio! I'm a U.S. Army infantry veteran turned software developer with a B.S. in Computing Science from Sam Houston State University.
-
-# About Me
-I specialize in software development, databases, and responsive web applications. I'm passionate about leveraging my military leadership experience and technical skills to build practical, robust solutions.
-
-# Skills
-Programming: C++, Java, Python, Ada
-
-Web Technologies: HTML/CSS, JavaScript
-
-Databases & SQL
-
-Version Control: Git & GitHub
-
-# Contact
-You can reach me via GitHub.
-
+- Currently working on: PLC and building automation projects with OpenPLC and STM32
+- Currently learning: Control systems, industrial automation, and building automation systems (BAS)
+- Looking to collaborate on: Controls, automation, and embedded projects
+- Ask me about: Bridging hardware and software, and moving from military leadership to engineering technology
+- Reach me: john.g.westiii@gmail.com
+- Portfolio: jgw3.github.io
+- Fun fact: I led soldiers in combat, and I bring that same composure to controls and code
