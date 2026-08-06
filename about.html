@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
-</head>
-<body>
-<!DOCTYPE html>
-
-
-  
   <title>About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="preload" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="mobile-override.css?v=3" media="all">
   <style>
     body { background-color: rgb(44, 54, 123); }
     h1 {
       color: rgb(117, 251, 97);
       font-size: 5em;
-      font-family: 'Press Start 2P', monospace, monospace;
+      font-family: 'Press Start 2P', monospace;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
     h2 {
@@ -31,33 +25,6 @@
       border-radius: 5px;
       border-bottom: 2px solid rgb(100, 200, 255);
       margin-bottom: 20px;
-    }
-    
-    /* Force mobile override with maximum specificity */
-    @media screen and (max-width: 768px) {
-      body .main h2.mobile-blue,
-      body .main h2[style] {
-        color: rgb(100, 200, 255) !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.9) !important;
-        background: rgba(0,0,0,0.7) !important;
-        padding: 8px 12px !important;
-        border-radius: 5px !important;
-        border-bottom: 2px solid rgb(100, 200, 255) !important;
-      }
-    }
-    
-    /* Nuclear option - target mobile user agents */
-    @media screen and (max-width: 768px), 
-           screen and (max-device-width: 768px),
-           only screen and (-webkit-min-device-pixel-ratio: 1) {
-      h2, .main h2, h2.mobile-blue {
-        color: rgb(100, 200, 255) !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.9) !important;
-        background: rgba(0,0,0,0.7) !important;
-        padding: 8px 12px !important;
-        border-radius: 5px !important;
-        border-bottom: 2px solid rgb(100, 200, 255) !important;
-      }
     }
     p {
       color: rgb(250, 250, 250);
@@ -171,47 +138,8 @@
         background: rgba(0,0,0,0.7) !important;
         padding: 8px 12px !important;
         border-radius: 5px !important;
+        border-bottom: 2px solid rgb(100, 200, 255) !important;
       }
-    }
-  </style>
-  
-  <script>
-    function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-    
-    // Force blue text on mobile - aggressive approach
-    document.addEventListener('DOMContentLoaded', function() {
-      const h2Elements = document.querySelectorAll('h2');
-      h2Elements.forEach(function(h2) {
-        h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
-        h2.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)', 'important');
-        h2.style.setProperty('background', 'rgba(0,0,0,0.7)', 'important');
-        h2.style.setProperty('padding', '8px 12px', 'important');
-        h2.style.setProperty('border-radius', '5px', 'important');
-        h2.style.setProperty('border-bottom', '2px solid rgb(100, 200, 255)', 'important');
-      });
-      
-      // Force it again after a delay in case other scripts interfere
-      setTimeout(function() {
-        const h2Elements = document.querySelectorAll('h2');
-        h2Elements.forEach(function(h2) {
-          h2.style.setProperty('color', 'rgb(100, 200, 255)', 'important');
-        });
-      }, 500);
-    });
-  </script>
-  
-  <link rel="stylesheet" href="mobile-override.css?v=3" media="all">
-  <style>
-    /* Final override after all other CSS loads */
-    h2 {
-      color: rgb(100, 200, 255) !important;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.9) !important;
-      background: rgba(0,0,0,0.7) !important;
-      padding: 8px 12px !important;
-      border-radius: 5px !important;
-      border-bottom: 2px solid rgb(100, 200, 255) !important;
     }
   </style>
 </head>
@@ -251,6 +179,5 @@
     <p>I'm looking for controls, automation, electrical design, and building automation work in the Houston and
        Conroe area.</p>
   </div>
-</body>
 </body>
 </html>
