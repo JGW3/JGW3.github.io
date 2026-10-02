@@ -20,14 +20,14 @@
    }
    h2 {
     color: rgb(213, 103, 72);
-    font-size: 2em;
+    font-size: 1.3em;
       font-family: 'Press Start 2P', monospace;
       font-weight: normal;
       font-style: normal;
   }
    p{
     color:rgb(52, 20, 5);
-    font-size: 1.5em;
+    font-size: 1.05em;
     font-family: Arial, Helvetica, sans-serif;
   }
  img{
@@ -90,6 +90,13 @@
   margin: 0 auto;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 16px;}
@@ -137,6 +144,11 @@
     font-size: 1.2em !important;
   }
   
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .project-card {
     margin: 15px 0;
     padding: 15px;
@@ -165,12 +177,18 @@
     border: 2px solid rgba(18, 101, 5, 0.3);
     border-radius: 10px;
     padding: 20px;
-    margin: 20px 0;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .project-card iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
   
   .project-content {
@@ -270,6 +288,8 @@
 
   <h1>Projects</h1>
 
+  <div class="projects-grid">
+
   <div class="project-card">
     <div class="project-image">
       <img src="img/plc-relay-static.png" width="200px" id="plcImg" alt="PLC relay automation demo"/>
@@ -282,8 +302,8 @@
     </div>
   </div>
 
-  <div class="project-card" style="align-items: flex-start;">
-    <div class="project-image" style="align-self: flex-start; margin-top: 40px;">
+  <div class="project-card">
+    <div class="project-image">
       <img src="img/garythesnail.jpg" width="200px" alt="Gary the Snail robot"/>
     </div>
     <div class="project-content">
@@ -352,6 +372,8 @@
       <h2>Homelab Server</h2>
       <p>Self-hosted home server (AMD Ryzen 1700X, 64GB DDR4 RAM) running local LLMs with Ollama and Odysseus WebUI on dual Nvidia Tesla P40 GPUs, an AI-powered home security system using Frigate NVR accelerated by a Google Coral TPU, and cloud file/photo storage via Nextcloud and Immich.</p>
     </div>
+  </div>
+
   </div>
 
     <br>
