@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="mobile-override.css?v=3" media="all">
   <title>PigFeed App Screenshots</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="css/mycss.css">
   <style>
     @font-face { font-family: 'Press Start 2P'; src: local('Press Start 2P'), local('PressStart2P'); }
@@ -195,22 +193,22 @@
     
   <div class="wrapper">
     <div onclick="openModal('img/pigfeedwelcom.png')">
-      <img src="img/pigfeedwelcom.png" width="300px">
+      <img src="img/pigfeedwelcom.png" width="300px" alt="Pig Feed app welcome screen">
       <p>Welcome Screen</p>
     </div>
     
     <div onclick="openModal('img/pigfeedcost.png')">
-      <img src="img/pigfeedcost.png" width="300px">
+      <img src="img/pigfeedcost.png" width="300px" alt="Pig Feed app cost tracking screen">
       <p>Feed Cost Analysis</p>
     </div>
 
     <div onclick="openModal('img/pigfeedmix.png')">
-      <img src="img/pigfeedmix.png" width="300px">
+      <img src="img/pigfeedmix.png" width="300px" alt="Pig Feed app mix optimization screen">
       <p>Feed Mix Calculator</p>
     </div>
 
     <div onclick="openModal('img/pigfeedreports.png')">
-      <img src="img/pigfeedreports.png" width="300px">
+      <img src="img/pigfeedreports.png" width="300px" alt="Pig Feed app reports screen">
       <p>Reports & Analytics</p>
     </div>
 
@@ -219,7 +217,7 @@
   <!-- Modal for image expansion -->
   <div id="imageModal" class="modal" onclick="closeModal()">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
+    <img class="modal-content" id="modalImage" alt="Enlarged screenshot">
   </div>
   
   <script>

@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="mobile-override.css?v=3" media="all">
   <title>SeniorShield Screenshots</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="css/mycss.css">
   <style>
     @font-face { font-family: 'Press Start 2P'; src: local('Press Start 2P'), local('PressStart2P'); }
@@ -195,22 +193,22 @@
     
   <div class="wrapper">
     <div onclick="openModal('img/SeniorSheildWelcome.png')">
-      <img src="img/SeniorSheildWelcome.png" width="200px">
+      <img src="img/SeniorSheildWelcome.png" width="200px" alt="SeniorShield app welcome screen">
       <p>Welcome Screen</p>
     </div>
     
     <div onclick="openModal('img/SeniorSheildMain.png')">
-      <img src="img/SeniorSheildMain.png" width="200px">
+      <img src="img/SeniorSheildMain.png" width="200px" alt="SeniorShield app main screen">
       <p>Main Dashboard</p>
     </div>
 
     <div onclick="openModal('img/SeniorSheildFTCAlerts.png')">
-      <img src="img/SeniorSheildFTCAlerts.png" width="200px">
+      <img src="img/SeniorSheildFTCAlerts.png" width="200px" alt="SeniorShield app FTC scam alerts screen">
       <p>FTC Alerts Feed</p>
     </div>
 
     <div onclick="openModal('img/SeniorSheildBot.png')">
-      <img src="img/SeniorSheildBot.png" width="200px">
+      <img src="img/SeniorSheildBot.png" width="200px" alt="SeniorShield app chatbot screen">
       <p>AI Chatbot Assistant</p>
     </div>
 
@@ -219,7 +217,7 @@
   <!-- Modal for image expansion -->
   <div id="imageModal" class="modal" onclick="closeModal()">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
+    <img class="modal-content" id="modalImage" alt="Enlarged screenshot">
   </div>
   
   <script>
